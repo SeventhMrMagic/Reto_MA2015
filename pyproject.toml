@@ -1,0 +1,20 @@
+[project]
+name = "reto-ma2015"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "SeventhMrMagic", email = "97853845+SeventhMrMagic@users.noreply.github.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "evox>=1.4.0",
+    "jax>=0.12.0",
+]
+
+[project.scripts]
+reto-ma2015 = "reto_ma2015:main"
+
+[build-system]
+requires = ["uv_build>=0.12.4,<0.13.0"]
+build-backend = "uv_build"
