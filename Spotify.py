@@ -3,8 +3,11 @@ import jax.numpy as jnp
 import algorithm
 import problem
 import os
+import matplotlib.pyplot as plt
 import evox
+import numpy as np
 from Scripts.Data_processing import data
+from Scripts.Data_sync import id
 
 if __name__ == '__main__':
     # Data processing
@@ -40,7 +43,7 @@ if __name__ == '__main__':
     )
 
     state = workflow.init(key)
-
+    historic_fit = []
     for i in range(10):
         state = workflow.step(state)
         monitor.flush()
@@ -48,3 +51,6 @@ if __name__ == '__main__':
         best_fitness = monitor.get_best_fitness()
         print("Iteration:", i, "Best Fitness:", best_fitness)
         print(f"Visited Node Order: {best_path}")
+        historic_fit.append(best_fitness.item())
+
+    print(id(best_path,"Data/SpotifyAudioFeaturesApril2019.csv"))
